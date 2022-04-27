@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {StoreService} from '../../services/store.service'
 
 @Component({
@@ -10,7 +10,7 @@ export class NavComponent implements OnInit {
 
   activeMenu = false;
   counter = 0;
-
+  @Input() mostrar = false;
     constructor(
     private storeService: StoreService
   ) { }
@@ -19,10 +19,16 @@ export class NavComponent implements OnInit {
     this.storeService.myCart$.subscribe(products =>{
       this.counter = products.length
     })
+
+
   }
 
 toggleMenu(){
   this.activeMenu = !this.activeMenu
 }
+
+toggleButton(){
+  this.mostrar = !this.mostrar;
+};
 
 }

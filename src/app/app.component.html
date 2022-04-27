@@ -4,7 +4,8 @@
 <p>{{showImg}}</p>
 <app-img *ngIf="showImg" (loaded)="onLoaded($event)" [img]="imageParent"> </app-img>
 <hr />-->
+<h1>{{cosa}}</h1>
 
-<app-nav></app-nav>
+<app-nav [mostrar]="cosa"></app-nav>
 <app-list-product></app-list-product>
-ho
+

@@ -13,9 +13,9 @@
   <div class="side-menu" [class.active]="activeMenu">
     <button (click)="toggleMenu()">close</button>
     <ul>
-      <li><a href="">All</a></li>
-      <li><a href="">Clothes</a></li>
-      <li><a href="">Electronics</a></li>
+      <li><a href="#">All</a></li>
+      <li><a href="#"  >Clothes</a></li>
+      <li><a href="#">Electronics</a></li>
     </ul>
   </div>
 </div>
@@ -28,7 +28,7 @@
       </a>
       <ul>
         <li><a href="">All</a></li>
-        <li><a href="">Clothes</a></li>
+        <li><a href="#" (click)="toggleButton()">Clothes</a></li>
         <li><a href="">Electronics</a></li>
       </ul>
     </nav>

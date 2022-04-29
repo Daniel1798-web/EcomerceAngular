@@ -9,7 +9,7 @@ import {Product}from '../../models/product.model'
 export class ProductComponent implements OnInit {
 
   @Input() product: Product = {
-    id:0,
+    id:"",
     title:"",
     images:[],
     price: 0,
@@ -22,6 +22,7 @@ export class ProductComponent implements OnInit {
 
 
   @Output() addedProduct = new EventEmitter<Product>();
+  @Output() showDetail = new EventEmitter<string>();
 
 
 
@@ -35,7 +36,12 @@ export class ProductComponent implements OnInit {
   }
 
   onLoad(){
-    console.log("cargado")
+   
   }
+
+  onShowDetail(){
+    this.showDetail.emit(this.product.id)
+  }
+
 
 }

@@ -14,6 +14,7 @@ import {ProductsService} from '../../services/products.service'
 export class ListProductComponent implements OnInit {
 
   myShopingCart :Product[] = [];
+  showProductDetail= false;
 
   total = 0;
   products:Product[] = [];
@@ -38,6 +39,17 @@ export class ListProductComponent implements OnInit {
     console.log(product)
     this.storeService.addProduct(product);
     this.total = this.storeService.getTotal();
+  }
+
+  toggleProductDetail(){
+    this.showProductDetail = !this.showProductDetail
+  }
+
+  onShowDetail(id: string){
+this.productsService.getProduct(id)
+.subscribe(data => {
+  console.log('product', data)
+})
   }
 
 }

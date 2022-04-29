@@ -8,13 +8,22 @@
   today: {{date | timeAgo}}
 </p>
 <div class="contenedor">
+  <button (click)="toggleProductDetail()">Click</button>
 <div class="products--grid" *ngIf="mostrar2; else vacio">
   <app-product
    [product]="product"
    *ngFor="let product of products"
    (addedProduct)=" onAddToShopingCart($event)"
-
+   (showDetail)="onShowDetail($event)"
   ></app-product>
+
+  <div class="product-detail" [class.active]="showProductDetail">
+    <div>
+      <button>close</button>
+        contenido
+
+    </div>
+  </div>
 
 
 </div>

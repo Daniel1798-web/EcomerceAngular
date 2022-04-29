@@ -6,9 +6,14 @@
     <a href="">
       <img src="./assets/png/logo_yard_sale.svg" alt="logo">
     </a>
-    <a href="">
+    <a href="" class="counter">
       <img src="./assets/png/icon_shopping_cart.svg" alt="logo">
+      <span>{{counter}}</span>
+
     </a>
+
+
+
   </div>
   <div class="side-menu" [class.active]="activeMenu">
     <button (click)="toggleMenu()">close</button>
@@ -36,7 +41,7 @@
       <div class="account">usuario@gmail.com</div>
       <div>
         <a href="">
-          <img src="./assets/png/icon_shopping_cart.svg" alt="logo">
+          <img src="./assets/png/icon_shopping_cart.svg" alt="logo" >
         </a>
         <span class="counter">{{counter}}</span>
       </div>

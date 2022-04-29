@@ -15,6 +15,16 @@ export class ListProductComponent implements OnInit {
 
   myShopingCart :Product[] = [];
   showProductDetail= false;
+  productChosen:Product = {    id:"",
+  title:"",
+  images:[],
+  price: 0,
+  category: {
+    id:"",
+    name:""
+  },
+  description:"",
+};
 
   total = 0;
   products:Product[] = [];
@@ -48,7 +58,8 @@ export class ListProductComponent implements OnInit {
   onShowDetail(id: string){
 this.productsService.getProduct(id)
 .subscribe(data => {
-  console.log('product', data)
+  this.toggleProductDetail()
+  this.productChosen = data;
 })
   }
 

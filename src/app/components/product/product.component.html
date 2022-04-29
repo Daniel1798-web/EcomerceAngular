@@ -1,9 +1,11 @@
 <div class="productoDiv">
-<app-img class="productimg" [img]="product.image" alt=""></app-img>
-<div class="tamaño">
 
-  <p>{{product.title | reverse }}</p>
-  <h2>{{product.price | currency:'USD'}}</h2>
-  <button class="btn-add" (click)="onAddToCart()">Add cart</button> </div>
+    <app-img *ngIf="product.images.length > 0" class="productimg" (loaded)="onLoad()" [img]="product.images[0]" alt=""></app-img>
+    <div class="tamaño">
+
+      <p>{{product.title | reverse }}</p>
+      <h2>{{product.price | currency:'USD'}}</h2>
+      <button class="btn-add" (click)="onAddToCart()">Add cart</button> </div>
+
 </div>
 

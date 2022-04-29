@@ -9,7 +9,9 @@ export class StoreService {
 
  private myShopingCart :Product[] = [];
  private myCart = new BehaviorSubject<Product[]>([])
+ private myOpcion = new BehaviorSubject<boolean>(false)
 
+ myOpcion$ = this.myOpcion.asObservable();
  myCart$ = this.myCart.asObservable();
 
   constructor() { }
@@ -18,6 +20,10 @@ export class StoreService {
     this.myShopingCart.push(product);
     this.myCart.next(this.myShopingCart);
 
+  }
+
+  addOpcion(){
+    this.myOpcion.next(false)
   }
 
   getShoppingCart(){

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {StoreService} from '../../services/store.service'
 
 @Component({
@@ -10,7 +10,9 @@ export class NavComponent implements OnInit {
 
   activeMenu = false;
   counter = 0;
-  @Input() mostrar = false;
+  valor = false;
+
+  @Output() mostrar  = new EventEmitter<boolean>();
     constructor(
     private storeService: StoreService
   ) { }
@@ -27,8 +29,13 @@ toggleMenu(){
   this.activeMenu = !this.activeMenu
 }
 
-toggleButton(){
-  this.mostrar = !this.mostrar;
+toggleButton(value : boolean){
+  this.mostrar.emit(value)
 };
+
+clicado(){
+  this.valor = !this.valor
+  this.mostrar.emit(this.valor)
+}
 
 }

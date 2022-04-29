@@ -11,11 +11,15 @@ export class ProductComponent implements OnInit {
   @Input() product: Product = {
     id:0,
     title:"",
-    image:"",
+    images:[],
     price: 0,
-    category: "",
+    category: {
+      id:"",
+      name:""
+    },
     description:"",
   };
+
 
   @Output() addedProduct = new EventEmitter<Product>();
 
@@ -23,11 +27,15 @@ export class ProductComponent implements OnInit {
 
   constructor() { }
   ngOnInit(): void {
-    
+
   }
 
   onAddToCart(){
     this.addedProduct.emit(this.product);
+  }
+
+  onLoad(){
+    console.log("cargado")
   }
 
 }

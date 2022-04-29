@@ -9,9 +9,9 @@ import { Component, Input} from '@angular/core';
 export class AppComponent {
   imageParent = "";
   showImg= true;
- cosa=false;
-
-
+  leche = "leche"
+  items = ["leche","agua"]
+  valor2: boolean =false;
 
 
   onLoaded(img:string){
@@ -20,5 +20,13 @@ export class AppComponent {
 
   toggleImg(){
     this.showImg = !this.showImg
+  }
+
+  addItem(newItem : string){
+this.items.push(newItem)
+  }
+
+  algo(valor : boolean){
+    this.valor2 = valor
   }
 }

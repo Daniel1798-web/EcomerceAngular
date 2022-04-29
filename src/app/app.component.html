@@ -4,8 +4,7 @@
 <p>{{showImg}}</p>
 <app-img *ngIf="showImg" (loaded)="onLoaded($event)" [img]="imageParent"> </app-img>
 <hr />-->
-<h1>{{cosa}}</h1>
 
-<app-nav [mostrar]="cosa"></app-nav>
-<app-list-product></app-list-product>
+<app-nav (mostrar)="algo($event)"></app-nav>
+<app-list-product [mostrar2]="valor2"></app-list-product>
 

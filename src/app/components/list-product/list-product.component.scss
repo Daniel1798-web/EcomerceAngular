@@ -1,7 +1,6 @@
- html{
-  overflow-x: hidden;
-  overflow-y: hidden;
-}
+
+
+
 
 
 .products--grid{
@@ -11,6 +10,12 @@
   width: 100%;
 
 }
+
+
+
+
+
+
 
 
 //tablet
@@ -29,8 +34,23 @@
     grid-template-columns: repeat(4,1fr);
     width: 100%;
     height: 400px;
+    scrollbar-color: #09C ;
+    scrollbar-width:   5px;
+
 
   }
+  html,body{
+    scrollbar-color: #09C ;
+    scrollbar-width:   5px;
+    overflow: auto;
+
+  }
+
+  .contenedor{
+    height: 100%;
+
+  }
+
 
 
 }

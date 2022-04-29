@@ -7,12 +7,20 @@
 <p>
   today: {{date | timeAgo}}
 </p>
-
-<div class="products--grid">
+<div class="contenedor">
+<div class="products--grid" *ngIf="mostrar2; else vacio">
   <app-product
    [product]="product"
    *ngFor="let product of products"
    (addedProduct)=" onAddToShopingCart($event)"
+
   ></app-product>
 
+
+</div>
+
+
+<ng-template #vacio>
+  <h1>Seleccione una categoria</h1>
+  </ng-template>
 </div>

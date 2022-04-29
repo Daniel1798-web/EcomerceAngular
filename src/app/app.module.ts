@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http'
-import { MomentModule } from 'ngx-moment';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -31,7 +30,7 @@ import { HighlightDirective } from './directive/highlight.directive'
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    MomentModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

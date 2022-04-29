@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 import { Product } from '../../models/product.model';
 
@@ -19,6 +19,7 @@ export class ListProductComponent implements OnInit {
   products:Product[] = [];
   today = new Date();
   date = new Date(2021,1,21)
+  @Input() mostrar2:boolean = false;
 
   constructor(private storeService: StoreService,
               private productsService: ProductsService){

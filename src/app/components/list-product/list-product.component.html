@@ -8,6 +8,7 @@
   today: {{date | timeAgo}}
 </p>
 <div class="contenedor">
+  <button (click)="createNewProduct()">create</button>
 <div class="products--grid" *ngIf="mostrar2; else vacio">
   <app-product
    [product]="product"
@@ -31,6 +32,7 @@
         </div>
       <div class="cajaDescriptionDetail">
         <p class="descriptionStyle">{{productChosen.description}}</p>
+        <button (click)="updateProduct()">Update</button>
       </div>
 
 

@@ -1,3 +1,10 @@
+
+export interface Category
+{
+  id:string;
+  name:string;
+}
+
 export interface Product
  {
    id:string;
@@ -9,8 +16,11 @@ export interface Product
  }
 
 
- export interface Category
+ export interface createProductDTO extends Omit<Product, 'id' | 'category'>
  {
-   id:string;
-   name:string;
+   categoryId:number;
  }
+
+ export interface UpdateProdcutDTO extends Partial<createProductDTO>{}
+
+

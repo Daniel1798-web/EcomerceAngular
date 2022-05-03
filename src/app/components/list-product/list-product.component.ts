@@ -5,6 +5,8 @@ import { Product,createProductDTO,UpdateProdcutDTO } from '../../models/product.
 import {StoreService} from '../../services/store.service'
 import {ProductsService} from '../../services/products.service'
 
+import Swal from 'sweetalert2'
+
 
 @Component({
   selector: 'app-list-product',
@@ -43,6 +45,7 @@ export class ListProductComponent implements OnInit {
 
   limit = 10;
   offset = 0;
+  statusDetail: 'loading' | 'succes' | 'error' | 'init' = 'init'
 
 
   ngOnInit(): void {
@@ -66,12 +69,29 @@ export class ListProductComponent implements OnInit {
   }
 
   onShowDetail(id: string){
-this.productsService.getProduct(id)
-.subscribe(data => {
-  this.toggleProductDetail()
-  this.productChosen = data;
+    this.statusDetail = 'loading';
+    this.productsService.getProduct(id)
+    .subscribe(data => {
+      this.toggleProductDetail()
+      this.productChosen = data;
+      this.statusDetail = 'succes'
+      console.log(this.statusDetail)
+
+}, ()=> {
+  this.statusDetail = 'error'
+  console.log(this.statusDetail)
+  Swal.fire({
+    title: "bom",
+    text: "No se encontró el producto",
+    icon: 'error',
+    confirmButtonText: 'cool'
+
+  })
+
 })
   }
+
+
 
   createNewProduct() {
     const product:createProductDTO = {
@@ -113,6 +133,7 @@ this.productsService.getProduct(id)
       const productIndex = this.products.findIndex(item => item.id === this.productChosen.id);
       this.products.splice(productIndex, 1);
       this.showProductDetail = false;
+      alert("borrado correctamente");
     })
   }
 

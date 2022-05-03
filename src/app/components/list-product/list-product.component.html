@@ -10,6 +10,8 @@
 <div class="contenedor">
 
   <button (click)="createNewProduct()">create</button>
+  <button (click)="onShowDetail('12125212')">detalle not found</button>
+
   <button (click)="loadMore()">Load more product</button>
 
 
@@ -24,6 +26,7 @@
 
       <!--detalles de producto-->
     <div class="product-detail" [class.active]="showProductDetail">
+      {{statusDetail}}
       <div *ngIf="productChosen">
         <a href="#" (click)="toggleProductDetail()"><img src="../../../assets/png/marca-x.png" alt="X"></a>
 

@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:proxy": "ng serve --proxy-config ./proxy.config.json",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
@@ -22,6 +23,7 @@
     "moment": "^2.29.3",
     "ngx-moment": "^6.0.2",
     "rxjs": "~7.5.0",
+    "sweetalert2": "^11.4.10",
     "swiper": "^8.1.4",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

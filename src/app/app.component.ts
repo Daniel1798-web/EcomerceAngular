@@ -11,7 +11,9 @@ export class AppComponent {
   showImg= true;
   leche = "leche"
   items = ["leche","agua"]
-  valor2: boolean =false;
+  valorAll: boolean =false;
+  valorClothes: boolean =false;
+
 
 
   onLoaded(img:string){
@@ -27,6 +29,12 @@ this.items.push(newItem)
   }
 
   algo(valor : boolean){
-    this.valor2 = valor
+    this.valorAll = valor
   }
+
+  showList2(valor2 : boolean){
+    this.valorClothes = valor2
+  }
+
+
 }

@@ -15,7 +15,8 @@ export class ListProductComponent implements OnInit {
 
   myShopingCart :Product[] = [];
   showProductDetail= false;
-  productChosen:Product = {    id:"",
+  productChosen:Product = {
+  id:"",
   title:"",
   images:[],
   price: 0,
@@ -30,7 +31,9 @@ export class ListProductComponent implements OnInit {
   products:Product[] = [];
   today = new Date();
   date = new Date(2021,1,21)
+
   @Input() mostrar2:boolean = false;
+  @Input() showClothes:boolean = false;
 
   constructor(
     private storeService: StoreService,
@@ -38,12 +41,18 @@ export class ListProductComponent implements OnInit {
     this.myShopingCart = this.storeService.getShoppingCart()
   }
 
+  limit = 10;
+  offset = 0;
+
 
   ngOnInit(): void {
-    this.productsService.getAllProducts()
+    this.productsService.getProductsByPage(10,0)
     .subscribe(data =>{
-    this.products = data
+    this.products = data;
+    this.loadMore
+
     })
+
   }
 
   onAddToShopingCart(product:Product){
@@ -96,6 +105,23 @@ this.productsService.getProduct(id)
 
     })
 
+  }
+
+  deleteProduct(){
+    const id = this.productChosen.id
+    this.productsService.delete(id).subscribe(() =>{
+      const productIndex = this.products.findIndex(item => item.id === this.productChosen.id);
+      this.products.splice(productIndex, 1);
+      this.showProductDetail = false;
+    })
+  }
+
+  loadMore(){
+    this.productsService.getProductsByPage(this.limit , this.offset)
+    .subscribe(data =>{
+    this.products = this.products.concat(data)
+    this.offset += this.limit;
+    })
   }
 
 

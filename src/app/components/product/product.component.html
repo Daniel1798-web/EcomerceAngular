@@ -6,7 +6,25 @@
       <p>{{product.title | reverse }}</p>
       <h2>{{product.price | currency:'USD'}}</h2>
       <button class="btn-add" (click)="onShowDetail()">Show Detail</button>
-      <button class="btn-add" (click)="onAddToCart()">Add cart</button> </div>
+      <button class="btn-add" (click)="onAddToCart()">Add cart</button>
+
+    </div>
 
 </div>
+
+<div *ngIf="clothes">
+<div  class="tamaño">
+
+
+  <p>{{product.title | reverse }}</p>
+      <h2>{{product.price | currency:'USD'}}</h2>
+      
+      <button class="btn-add" (click)="onShowDetail()">Show Detail</button>
+      <button class="btn-add" (click)="onAddToCart()">Add cart</button> </div>
+
+
+
+</div>
+
+
 

@@ -19,7 +19,7 @@
     <button (click)="toggleMenu()">close</button>
     <ul>
       <li><a href="#" (click)="clicado()">All</a></li>
-      <li><a href="#"  >Clothes</a></li>
+      <li><a href="#" (click)="activeClothes()" >Clothes</a></li>
       <li><a href="#">Electronics</a></li>
     </ul>
   </div>
@@ -33,7 +33,7 @@
       </a>
       <ul>
         <li><a href="#" (click)="clicado()">All</a></li>
-        <li><a href="#"   >Clothes</a></li>
+        <li><a href="#" (click)="activeClothes()"  >Clothes</a></li>
         <li><a href="">Electronics</a></li>
       </ul>
     </nav>

@@ -5,6 +5,6 @@
 <app-img *ngIf="showImg" (loaded)="onLoaded($event)" [img]="imageParent"> </app-img>
 <hr />-->
 
-<app-nav (mostrar)="algo($event)"></app-nav>
-<app-list-product [mostrar2]="valor2"></app-list-product>
+<app-nav (mostrar)="algo($event)" (show2)="showList2($event)"></app-nav>
+<app-list-product [mostrar2]="valorAll" [showClothes]="valorClothes"></app-list-product>
 

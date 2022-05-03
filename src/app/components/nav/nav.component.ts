@@ -11,11 +11,18 @@ export class NavComponent implements OnInit {
   activeMenu = false;
   counter = 0;
   valor = false;
+  valor2 = false;
+
+  @Output() show2  = new EventEmitter<boolean>();
+
 
   @Output() mostrar  = new EventEmitter<boolean>();
+
     constructor(
     private storeService: StoreService
   ) { }
+
+
 
   ngOnInit(): void {
     this.storeService.myCart$.subscribe(products =>{
@@ -35,6 +42,15 @@ toggleButton(value : boolean){
 
 clicado(){
   this.valor = !this.valor
+  this.valor2 = false;
+  this.mostrar.emit(this.valor)
+  this.show2.emit(this.valor2)
+}
+
+activeClothes(){
+  this.valor2 = !this.valor2
+  this.valor = false;
+  this.show2.emit(this.valor2)
   this.mostrar.emit(this.valor)
 }
 

@@ -20,6 +20,8 @@ export class ProductComponent implements OnInit {
     description:"",
   };
 
+  clothes = false;
+
 
   @Output() addedProduct = new EventEmitter<Product>();
   @Output() showDetail = new EventEmitter<string>();
@@ -36,7 +38,7 @@ export class ProductComponent implements OnInit {
   }
 
   onLoad(){
-   
+
   }
 
   onShowDetail(){

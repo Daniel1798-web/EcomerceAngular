@@ -49,18 +49,18 @@ export class ProductsService {
     .pipe(
       catchError((error: HttpErrorResponse) => {
         if(error.status === HttpStatusCode.Conflict){
-          return throwError("algo falla en el servidor");
+          return throwError(()=>{"algo falla en el servidor"});
 
         }
         if(error.status === HttpStatusCode.NotFound){
-          return throwError("el producto no existe");
+          return throwError(()=>{ "el producto no existe"});
 
         }
         if(error.status === HttpStatusCode.Unauthorized){
-          return throwError("No estas autorizado");
+          return  throwError(() =>{"No estas autorizado"});
 
         }
-        return throwError("ups algo salió mal");
+        return throwError(() =>{"ups algo salió mal"});
       })
     )
   }

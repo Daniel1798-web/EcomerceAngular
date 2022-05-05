@@ -45,7 +45,7 @@ export class ListProductComponent implements OnInit {
 
   limit = 10;
   offset = 0;
-  statusDetail: 'loading' | 'succes' | 'error' | 'init' = 'init'
+  statusDetail: 'loading' | 'success' | 'error' | 'init' = 'init'
 
 
   ngOnInit(): void {
@@ -68,13 +68,13 @@ export class ListProductComponent implements OnInit {
     this.showProductDetail = !this.showProductDetail
   }
 
-  onShowDetail(id: string){
+  onShowDetail(id: string ){
     this.statusDetail = 'loading';
+    this.toggleProductDetail();
     this.productsService.getProduct(id)
     .subscribe(data => {
-      this.toggleProductDetail()
       this.productChosen = data;
-      this.statusDetail = 'succes'
+      this.statusDetail = 'success'
       console.log(this.statusDetail)
 
 }, ()=> {
